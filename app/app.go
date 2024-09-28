@@ -15,5 +15,5 @@ func init() {
 
 // Prepares the environment and runs the bot
 func Run() {
-	logs("fdfdas")
+	initMacaron()
 }
