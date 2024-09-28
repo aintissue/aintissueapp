@@ -1,0 +1,6 @@
+# More debugging info and SQLite used in dev mode
+dev: true
+
+# Database URI (path for SQLite or set of data for Postgres)
+# db_uri: host=localhost user=postgres password=ouy2kcuF dbname=aintissue port=5432 sslmode=disable
+db_uri: data/bot.db
