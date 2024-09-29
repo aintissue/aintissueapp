@@ -19,5 +19,14 @@ func initMacaron() {
 	m.Get("/stats.json", viewStats)
 	m.Get("/login-api/:telegramid", viewLoginApi)
 
+	m.Get("/", checkUser, viewApp)
+
 	m.Run("127.0.0.1", Port)
+}
+
+func checkUser(sess session.Store, ctx *macaron.Context) {
+	tgid := sess.Get("tgid")
+	if tgid == nil {
+		ctx.Redirect("/login")
+	}
 }
