@@ -19,8 +19,8 @@ func initMacaron() {
 
 	m.Get("/stats.json", viewStats)
 	m.Get("/login", viewLogin)
-	m.Get("/login-api/:telegramid", viewLoginApi)
-	m.Get("/login-do/:telegramid/:sessionid", viewloginDo)
+	m.Get("/login/:telegramid", viewLoginApi)
+	m.Get("/login/:telegramid/:sessionid", viewloginDo)
 
 	m.Get("/", checkUser, viewApp)
 
