@@ -28,5 +28,14 @@ func checkUser(sess session.Store, ctx *macaron.Context) {
 	tgid := sess.Get("tgid")
 	if tgid == nil {
 		ctx.Redirect("/login")
+		return
 	}
+
+	u := getUser(tgid.(int64))
+	if u.ID == 0 {
+		ctx.Redirect("/login")
+		return
+	}
+
+	ctx.Data["user"] = u
 }

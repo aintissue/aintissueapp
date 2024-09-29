@@ -15,3 +15,14 @@ type User struct {
 	DefaultChat   *Chat `gorm:"default:1"`
 	MsgCount      uint64
 }
+
+// Fetches User object by Telegram ID
+func getUser(tid int64) *User {
+	u := &User{}
+	// log.Println(prettyPrint(u))
+	if err := db.First(u, &User{TelegramId: tid}).Error; err != nil {
+		loge(err)
+	}
+
+	return u
+}

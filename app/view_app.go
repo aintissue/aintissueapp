@@ -6,6 +6,6 @@ import (
 )
 
 func viewApp(sess session.Store, ctx *macaron.Context) string {
-	logs(getIp(ctx))
+	logs(prettyPrint(ctx.Data["user"]))
 	return "hello world"
 }
