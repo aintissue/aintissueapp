@@ -12,6 +12,7 @@ func initMacaron() {
 	m.Use(macaron.Renderer())
 	m.Use(cache.Cacher())
 	m.Use(session.Sessioner())
+	m.Use(macaron.Static("static"))
 	m.Use(func(sess session.Store) {
 		// log.Println(sess.ID())
 	})
@@ -37,5 +38,5 @@ func checkUser(sess session.Store, ctx *macaron.Context) {
 		return
 	}
 
-	ctx.Data["user"] = u
+	ctx.Data["User"] = u
 }
