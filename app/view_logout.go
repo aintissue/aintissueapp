@@ -10,5 +10,11 @@ func viewLogout(sess session.Store, ctx *macaron.Context) {
 	if err != nil {
 		loge(err)
 	}
+
+	err = sess.Destory(ctx)
+	if err != nil {
+		loge(err)
+	}
+
 	ctx.Redirect("/")
 }
