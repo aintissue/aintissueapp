@@ -21,6 +21,7 @@ func initMacaron() {
 	m.Get("/login", viewLogin)
 	m.Get("/login/:telegramid", viewLoginApi)
 	m.Get("/login/:telegramid/:sessionid", viewloginDo)
+	m.Get("/logout", viewLogout)
 
 	m.Get("/", checkUser, viewApp)
 
