@@ -1,6 +1,8 @@
 package app
 
 import (
+	"log"
+
 	"github.com/go-macaron/session"
 	macaron "gopkg.in/macaron.v1"
 )
@@ -17,6 +19,8 @@ func viewStats(sess session.Store, ctx *macaron.Context) {
 	}
 
 	sr.Bots = 2
+
+	log.Println(sess.ID())
 
 	ctx.JSON(200, sr)
 }
