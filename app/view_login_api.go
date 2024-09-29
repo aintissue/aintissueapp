@@ -9,20 +9,24 @@ import (
 
 func viewLoginApi(sess session.Store, ctx *macaron.Context) {
 	lar := &LoginApiResponse{}
-	lar.SessionId = sess.ID()
+	ip := getIp(ctx)
 
-	tgids := ctx.Params("telegramid")
-	tgid, err := strconv.Atoi(tgids)
-	if err != nil {
-		loge(err)
+	if ip == "127.0.0.1" {
+		lar.SessionId = sess.ID()
+
+		tgids := ctx.Params("telegramid")
+		tgid, err := strconv.Atoi(tgids)
+		if err != nil {
+			loge(err)
+		}
+
+		err = sess.Set("tgid", int64(tgid))
+		if err != nil {
+			loge(err)
+		}
+
+		lar.TelegramId = int64(tgid)
 	}
-
-	err = sess.Set("tgid", int64(tgid))
-	if err != nil {
-		loge(err)
-	}
-
-	lar.TelegramId = int64(tgid)
 
 	ctx.JSON(200, lar)
 }
