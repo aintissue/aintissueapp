@@ -17,6 +17,7 @@ require (
 	github.com/distribution/reference v0.5.0 // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.5.0 // indirect
+	github.com/go-macaron/binding v1.2.0 // indirect
 	github.com/go-macaron/inject v0.0.0-20200308113650-138e5925c53b // indirect
 	github.com/go-viper/mapstructure/v2 v2.0.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect

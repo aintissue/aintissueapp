@@ -1,6 +1,7 @@
 package app
 
 import (
+	"github.com/go-macaron/binding"
 	"github.com/go-macaron/cache"
 	"github.com/go-macaron/session"
 	macaron "gopkg.in/macaron.v1"
@@ -25,6 +26,8 @@ func initMacaron() {
 	m.Get("/start", viewStartBot)
 
 	m.Get("/", checkUser, viewApp)
+	m.Get("/profile", checkUser, viewProfile)
+	m.Post("/profile", checkUser, binding.Bind(ProfileForm{}), viewProfileSave)
 
 	m.Run("127.0.0.1", Port)
 }

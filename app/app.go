@@ -1,6 +1,10 @@
 package app
 
-import "gorm.io/gorm"
+import (
+	"log"
+
+	"gorm.io/gorm"
+)
 
 var conf *Config
 
@@ -15,5 +19,7 @@ func init() {
 
 // Prepares the environment and runs the bot
 func Run() {
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
+
 	initMacaron()
 }
