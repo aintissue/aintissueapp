@@ -21,11 +21,11 @@ func initDb() *gorm.DB {
 		loge(err)
 	}
 
-	if conf.Dev {
-		if err := db.AutoMigrate(&Chat{}, &User{}); err != nil {
-			panic(err.Error())
-		}
+	// if conf.Dev {
+	if err := db.AutoMigrate(&Chat{}, &User{}); err != nil {
+		panic(err.Error())
 	}
+	// }
 
 	return db
 }
