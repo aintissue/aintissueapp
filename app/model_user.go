@@ -16,6 +16,7 @@ type User struct {
 	MsgCount      uint64
 	Email         string `gorm:"size:255 uniqueIndex"`
 	RefCode       string `gorm:"size:255 uniqueIndex"`
+	Plan          int    `gorm:"default:0"`
 }
 
 // Fetches User object by Telegram ID
