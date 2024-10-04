@@ -19,6 +19,7 @@
                         callback();
                     }
                 });
+                document.addEventListener('DOMContentLoaded', initCopy);
             }
             domContentLoadedCallbacks.push(callback);
         }
@@ -713,3 +714,23 @@
 
 }));
 //# sourceMappingURL=adminlte.js.map
+
+function initCopy()  {
+    // alert($("#refLink").val());
+    $("#refCopy").on("click", function () {
+        $("#refLinkCopied").fadeIn(function () {
+            setTimeout(function () {
+                $("#refLinkCopied").fadeOut();
+            }, 3000);
+        });
+
+        var copyText = document.getElementById("refLink");
+
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+    });
+}
