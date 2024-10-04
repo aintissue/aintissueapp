@@ -20,6 +20,12 @@ type User struct {
 	// Chats         []*Chat
 }
 
+func (u *User) getChats() []*Chat {
+	var chats []*Chat
+	db.Find(&chats, &Chat{OwnerID: u.ID})
+	return chats
+}
+
 // Fetches User object by Telegram ID
 func getUser(tid int64) *User {
 	u := &User{}

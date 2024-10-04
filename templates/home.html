@@ -78,6 +78,13 @@
                                 </li>
                             </ol> -->
                         </div>
+                        {{ if .Upgrade }}
+                        <div class="col-12 mt-3 mb-2">
+                            <div class="callout callout-danger">
+                                You used all your projects or bots. To add more, upgrade your Aint Issue plan to Basic or Business.
+                                </a> </div>
+                        </div> <!--end::Col--> <!--begin::Col-->
+                        {{ end }}
                     </div> <!--end::Row-->
                 </div> <!--end::Container-->
             </div> <!--end::App Content Header--> <!--begin::App Content-->

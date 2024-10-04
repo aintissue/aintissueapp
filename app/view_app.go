@@ -7,10 +7,13 @@ import (
 
 func viewApp(sess session.Store, ctx *macaron.Context) {
 	u := ctx.Data["User"].(*User)
-	var chats []*Chat
+	ctx.Data["Upgrade"] = 0
 
-	db.Find(&chats, &Chat{OwnerID: u.ID})
-	ctx.Data["Chats"] = chats
+	ctx.Data["Chats"] = u.getChats()
+
+	if u.Plan == PlanFree && len(u.getChats()) > 0 {
+		ctx.Data["Upgrade"] = 1
+	}
 
 	ctx.HTML(200, "home")
 }
