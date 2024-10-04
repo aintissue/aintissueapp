@@ -8,5 +8,6 @@ import (
 type Chat struct {
 	gorm.Model
 	Namespace string `gorm:"size:255;uniqueIndex"`
-	OwnerID   int64
+	OwnerID   uint
+	ChatID    int64
 }

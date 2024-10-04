@@ -91,8 +91,13 @@
                                 </div> <!--end::Header--> <!--begin::Body-->
                                 <div class="card-body">
                                     <p class="muted">
-                                        If you want to create your own free project with AintIssueBot, please follow <a href="https://aintissue.com/tutorials/free" target="_blank">this tutorial</a> step by step. After you finish, the project will be shown here.
+                                        If you want to create your own free project with AintIssueBot, please follow <a class="text-danger" href="https://aintissue.com/tutorials/free" target="_blank">this tutorial</a> step by step. After you finish, the project will be shown here.
                                     </p>
+                                    <ul>
+                                        {{ range .Chats }}
+                                        <li><a class="text-danger" href="https://t.me/AintIssueBot?start={{ .Namespace }}" target="_blank"><strong>{{ .Namespace }}</strong></a></li>
+                                        {{ end }}
+                                    </ul>
                                 </div> <!--end::Body-->
                             </div> <!--end::Toast--> <!--begin::Spinner-->
                         </div>

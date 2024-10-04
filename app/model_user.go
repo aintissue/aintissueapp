@@ -17,6 +17,7 @@ type User struct {
 	Email         string `gorm:"size:255 uniqueIndex"`
 	RefCode       string `gorm:"size:255 uniqueIndex"`
 	Plan          int    `gorm:"default:0"`
+	// Chats         []*Chat
 }
 
 // Fetches User object by Telegram ID

@@ -6,7 +6,11 @@ import (
 )
 
 func viewApp(sess session.Store, ctx *macaron.Context) {
-	// logs(prettyPrint(ctx.Data["user"]))
-	// return "hello world"
+	u := ctx.Data["User"].(*User)
+	var chats []*Chat
+
+	db.Find(&chats, &Chat{OwnerID: u.ID})
+	ctx.Data["Chats"] = chats
+
 	ctx.HTML(200, "home")
 }
