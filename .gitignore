@@ -3,3 +3,6 @@ data/bot.db
 data/config.yaml
 data
 data/*
+data/bots/
+data/bots/*
+data/aintissuebot
