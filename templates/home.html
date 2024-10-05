@@ -177,13 +177,13 @@
                                 <div class="card-body">
                                     <p class="muted">
                                         <strong>Referred Users</strong><br />
-                                        0<br />
+                                        {{ .Stats.Referred }}<br />
                                         <strong>Referred Basic</strong><br />
-                                        0<br />
+                                        {{ .Stats.Basic }}<br />
                                         <strong>Referred Business</strong><br />
-                                        0<br />
+                                        {{ .Stats.Business }}<br />
                                         <strong>Monthly Recurring Revenue</strong><br />
-                                        $0.00
+                                        ${{ .Stats.MRR }}
                                     </p>
                                 </div> <!--end::Body-->
                             </div> <!--end::Toast--> <!--begin::Spinner-->

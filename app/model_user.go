@@ -33,6 +33,24 @@ func (u *User) getBots() []*Bot {
 	return bots
 }
 
+func (u *User) countReferred() int {
+	var r []*User
+	db.Find(&r, &User{ReferralID: u.ID})
+	return len(r)
+}
+
+func (u *User) countBasic() int {
+	var r []*User
+	db.Find(&r, &User{ReferralID: u.ID, Plan: PlanBasic})
+	return len(r)
+}
+
+func (u *User) countBusiness() int {
+	var r []*User
+	db.Find(&r, &User{ReferralID: u.ID, Plan: PlanBusiness})
+	return len(r)
+}
+
 // Fetches User object by Telegram ID
 func getUser(tid int64) *User {
 	u := &User{}
