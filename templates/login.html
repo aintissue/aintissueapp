@@ -62,7 +62,9 @@
         });
 
         var r = localStorage.getItem("r");
-        $("#login").attr("href", "https://t.me/AintIssueBot?start=login-" + r);
+        if (r != null) {
+            $("#login").attr("href", "https://t.me/AintIssueBot?start=login-" + r);
+        }
     </script> <!--end::OverlayScrollbars Configure--> <!--end::Script-->
 </body><!--end::Body-->
 
