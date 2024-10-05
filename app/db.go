@@ -22,7 +22,7 @@ func initDb() *gorm.DB {
 	}
 
 	// if conf.Dev {
-	if err := db.AutoMigrate(&Chat{}, &User{}); err != nil {
+	if err := db.AutoMigrate(&Chat{}, &User{}, &Bot{}); err != nil {
 		panic(err.Error())
 	}
 	// }
