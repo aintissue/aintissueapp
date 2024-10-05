@@ -1,5 +1,5 @@
 aintissueapp
 data/bot.db
 data/config.yaml
-# data
-# data/*
+data
+data/*
