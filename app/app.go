@@ -15,6 +15,8 @@ func init() {
 	conf = initConfig()
 
 	db = initDb()
+
+	initKeyValue()
 }
 
 // Prepares the environment and runs the bot
