@@ -1,8 +1,6 @@
 package app
 
 import (
-	"log"
-
 	"github.com/go-macaron/session"
 	macaron "gopkg.in/macaron.v1"
 )
@@ -12,7 +10,6 @@ func viewProfile(sess session.Store, ctx *macaron.Context) {
 }
 
 func viewProfileSave(prof ProfileForm, f *session.Flash, ctx *macaron.Context) {
-	log.Println(prof.Email)
 	if len(prof.Email) == 0 {
 		f.Error("Email field is required.")
 		ctx.Redirect("/profile")
