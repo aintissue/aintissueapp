@@ -91,9 +91,13 @@
                                 </div> <!--end::Header--> <!--begin::Body-->
                                 <div class="card-body">
                                     <form action="/create" method="POST">
+                                        <div class="mb-2">
+                                            <label for="name" class="form-label"><strong>Bot Name</strong></label>
+                                            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" value="" placeholder="My First Bot">
+                                        </div>
                                         <div class="mb-3">
-                                            <label for="telegram_key" class="form-label">Telegram API Key</label>
-                                            <input type="text" class="form-control" id="telegram_key" name="telegram_key" aria-describedby="emailHelp" value="">
+                                            <label for="telegram_key" class="form-label"><strong>Telegram API Key</strong></label>
+                                            <input type="text" class="form-control" id="telegram_key" name="telegram_key" aria-describedby="emailHelp" value="" placeholder="XXXXXXXXXX:XXXX...">
                                         </div>
                                         <p class="text-danger">{{ .Flash.ErrorMsg }}</p>
                                         <p class="text-success">{{ .Flash.SuccessMsg }}</p>

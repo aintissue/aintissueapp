@@ -16,6 +16,12 @@ func viewCreateBot(sess session.Store, ctx *macaron.Context) {
 }
 
 func viewDoCreateBot(botf BotForm, f *session.Flash, ctx *macaron.Context) {
+	if len(botf.TelegramKey) == 0 || len(botf.Name) == 0 {
+		f.Error("Both fields are required is required.")
+		ctx.Redirect("/create")
+		return
+	}
+
 	cmd := exec.Command("cp", "-R", "data/aintissuebot", fmt.Sprintf("data/bots/bot%d", getBotCount()))
 	out, err := cmd.Output()
 	if err != nil {
@@ -44,7 +50,7 @@ func viewDoCreateBot(botf BotForm, f *session.Flash, ctx *macaron.Context) {
 
 	botName := fmt.Sprintf("bot%d-bot-1", getBotCount())
 	bot := &Bot{
-		Name:      botName,
+		Name:      botf.Name,
 		Namespace: botName,
 		OwnerID:   ctx.Data["User"].(*User).ID,
 	}
@@ -65,6 +71,7 @@ func viewDoCreateBot(botf BotForm, f *session.Flash, ctx *macaron.Context) {
 
 type BotForm struct {
 	TelegramKey string `form:"telegram_key"`
+	Name        string `form:"name"`
 }
 
 func replaceInFile(path string, old string, new string) {
