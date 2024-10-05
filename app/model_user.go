@@ -17,7 +17,8 @@ type User struct {
 	Email         string `gorm:"size:255 uniqueIndex"`
 	RefCode       string `gorm:"size:255 uniqueIndex"`
 	Plan          int    `gorm:"default:0"`
-	// Chats         []*Chat
+	ReferralID    uint
+	Referral      *User
 }
 
 func (u *User) getChats() []*Chat {
