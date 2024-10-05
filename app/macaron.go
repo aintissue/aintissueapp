@@ -29,6 +29,7 @@ func initMacaron() {
 	m.Post("/profile", checkUser, binding.Bind(ProfileForm{}), viewProfileSave)
 	m.Get("/create", checkUser, viewCreateBot)
 	m.Post("/create", checkUser, binding.Bind(BotForm{}), viewDoCreateBot)
+	m.Get("/delete/:id", checkUser, viewDeleteBot)
 
 	m.Run("127.0.0.1", Port)
 }

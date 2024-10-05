@@ -26,6 +26,12 @@ func (u *User) getChats() []*Chat {
 	return chats
 }
 
+func (u *User) getBots() []*Bot {
+	var bots []*Bot
+	db.Find(&bots, &Bot{OwnerID: u.ID})
+	return bots
+}
+
 // Fetches User object by Telegram ID
 func getUser(tid int64) *User {
 	u := &User{}

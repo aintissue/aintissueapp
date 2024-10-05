@@ -22,6 +22,7 @@ func viewDoCreateBot(botf BotForm, f *session.Flash, ctx *macaron.Context) {
 		loge(err)
 		f.Error(err.Error())
 		ctx.Redirect("/create")
+		return
 	}
 
 	log.Println("Output: ", string(out))
@@ -36,6 +37,7 @@ func viewDoCreateBot(botf BotForm, f *session.Flash, ctx *macaron.Context) {
 		loge(err)
 		f.Error(err.Error())
 		ctx.Redirect("/create")
+		return
 	}
 
 	log.Println("Output: ", string(out))
@@ -52,6 +54,7 @@ func viewDoCreateBot(botf BotForm, f *session.Flash, ctx *macaron.Context) {
 		loge(err)
 		f.Error(err.Error())
 		ctx.Redirect("/create")
+		return
 	}
 
 	increaseBotCount()
