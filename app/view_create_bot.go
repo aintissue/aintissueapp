@@ -16,6 +16,13 @@ func viewCreateBot(sess session.Store, ctx *macaron.Context) {
 }
 
 func viewDoCreateBot(botf BotForm, f *session.Flash, ctx *macaron.Context) {
+	u := ctx.Data["User"].(*User)
+	if len(u.getBots()) > 0 {
+		f.Error("You can only have one bot in trial, please upgrade to create unlimited number of bots.")
+		ctx.Redirect("/create")
+		return
+	}
+
 	if len(botf.TelegramKey) == 0 || len(botf.Name) == 0 {
 		f.Error("Both fields are required is required.")
 		ctx.Redirect("/create")
