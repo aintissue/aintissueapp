@@ -23,11 +23,12 @@ func initMacaron() {
 	m.Get("/login/:telegramid", viewLoginApi)
 	m.Get("/login/:telegramid/:sessionid", viewloginDo)
 	m.Get("/logout", viewLogout)
-	m.Get("/start", viewStartBot)
 
 	m.Get("/", checkUser, viewApp)
 	m.Get("/profile", checkUser, viewProfile)
 	m.Post("/profile", checkUser, binding.Bind(ProfileForm{}), viewProfileSave)
+	m.Get("/create", checkUser, viewCreateBot)
+	m.Post("/create", checkUser, viewDoCreateBot)
 
 	m.Run("127.0.0.1", Port)
 }

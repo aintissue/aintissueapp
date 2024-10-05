@@ -5,7 +5,11 @@ import (
 	macaron "gopkg.in/macaron.v1"
 )
 
-func viewStartBot(sess session.Store, ctx *macaron.Context) string {
+func viewCreateBot(sess session.Store, ctx *macaron.Context) {
+	ctx.HTML(200, "bot")
+}
+
+func viewDoCreateBot(sess session.Store, ctx *macaron.Context) string {
 	// cmd := exec.Command("docker", "compose", "up", "-d")
 	// cmd.Dir = "./bot1/"
 
@@ -17,4 +21,8 @@ func viewStartBot(sess session.Store, ctx *macaron.Context) string {
 	// log.Println("Output: ", string(out))
 
 	return "Hello world"
+}
+
+type BotForm struct {
+	TelegramKey string `form:"telegram_key"`
 }

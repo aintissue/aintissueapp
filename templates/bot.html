@@ -3,9 +3,9 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Profile | Aint Issue App - Free Telegram Support Bot</title><!--begin::Primary Meta Tags-->
+    <title>Create Bot | Aint Issue App - Free Telegram Support Bot</title><!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Profile | Aint Issue App - Free Telegram Support Bot">
+    <meta name="title" content="Create Bot | Aint Issue App - Free Telegram Support Bot">
     <meta name="author" content="ColorlibHQ">
     <meta name="description" content="">
     <meta name="keywords" content=""><!--end::Primary Meta Tags--><!--begin::Fonts-->
@@ -40,7 +40,7 @@
                         <li class="nav-item"> <a href="/" class="nav-link"> <i class="nav-icon bi bi-speedometer2"></i>
                             <p>Dashboard</p>
                         </a> </li>
-                        <li class="nav-item"> <a href="/profile" class="nav-link active"> <i class="nav-icon bi bi-person-circle"></i>
+                        <li class="nav-item"> <a href="/profile" class="nav-link"> <i class="nav-icon bi bi-person-circle"></i>
                             <p>Profile</p>
                         </a> </li>
                         <li class="nav-item"> <a href="/logout" class="nav-link"> <i class="nav-icon bi bi-box-arrow-left"></i>
@@ -68,7 +68,7 @@
                 <div class="container-fluid"> <!--begin::Row-->
                     <div class="row">
                         <div class="col-sm-6">
-                            <h3 class="mb-0">Profile</h3>
+                            <h3 class="mb-0">Create Bot</h3>
                         </div>
                         <div class="col-sm-6">
                             <!-- <ol class="breadcrumb float-sm-end">
@@ -85,19 +85,19 @@
                 <div class="container-fluid"> <!--begin::Row-->
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="card card-danger card-outline mb-4"> <!--begin::Header-->
+                            <div class="card card-primary card-outline mb-4"> <!--begin::Header-->
                                 <div class="card-header">
-                                    <div class="card-title"><strong>Your Profile On Aint Issue</strong></div>
+                                    <div class="card-title"><strong>Create New Ain Issue Bot</strong></div>
                                 </div> <!--end::Header--> <!--begin::Body-->
                                 <div class="card-body">
                                     <form action="/profile" method="POST">
                                         <div class="mb-3">
-                                            <label for="email" class="form-label">Email Address</label>
-                                            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="{{ .User.Email }}">
+                                            <label for="telegram_key" class="form-label">Telegram API Key</label>
+                                            <input type="text" class="form-control" id="telegram_key" name="telegram_key" aria-describedby="emailHelp" value="">
                                         </div>
                                         <p class="text-danger">{{ .Flash.ErrorMsg }}</p>
                                         <p class="text-success">{{ .Flash.SuccessMsg }}</p>
-                                        <button type="submit" class="btn btn-primary">Save Email</button>
+                                        <button type="submit" class="btn btn-primary">Create New Bot</button>
                                     </form>
                                 </div> <!--end::Body-->
                             </div> <!--end::Toast--> <!--begin::Spinner-->
