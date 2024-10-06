@@ -7,6 +7,7 @@ type Bot struct {
 	gorm.Model
 	Name      string `gorm:"size:255"`
 	Namespace string `gorm:"size:255;uniqueIndex"`
+	Dir       string `gorm:"size:255;uniqueIndex"`
 	OwnerID   uint
 }
 

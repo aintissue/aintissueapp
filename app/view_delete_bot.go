@@ -44,7 +44,7 @@ func viewDeleteBot(f *session.Flash, ctx *macaron.Context) {
 	}
 	log.Println("Output: ", string(out))
 
-	cmd = exec.Command("rm", "-rf", fmt.Sprintf("data/bots/bot%d", bot.ID))
+	cmd = exec.Command("rm", "-rf", fmt.Sprintf("data/bots/%s", bot.Dir))
 	out, err = cmd.Output()
 	if err != nil {
 		loge(err)

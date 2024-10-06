@@ -29,7 +29,9 @@ func viewDoCreateBot(botf BotForm, f *session.Flash, ctx *macaron.Context) {
 		return
 	}
 
-	cmd := exec.Command("cp", "-R", "data/aintissuebot", fmt.Sprintf("data/bots/bot%d", getBotCount()))
+	dir := fmt.Sprintf("bot%d", getBotCount())
+
+	cmd := exec.Command("cp", "-R", "data/aintissuebot", fmt.Sprintf("data/bots/%s", dir))
 	out, err := cmd.Output()
 	if err != nil {
 		loge(err)
@@ -58,6 +60,7 @@ func viewDoCreateBot(botf BotForm, f *session.Flash, ctx *macaron.Context) {
 	botName := fmt.Sprintf("bot%d-bot-1", getBotCount())
 	bot := &Bot{
 		Name:      botf.Name,
+		Dir:       dir,
 		Namespace: botName,
 		OwnerID:   ctx.Data["User"].(*User).ID,
 	}
